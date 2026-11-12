@@ -18,6 +18,10 @@ Use relative URLs and same-origin credentials. State-changing calls send `X-HS-R
 | POST /api/recovery/issue | `login`, `password` | Recovery code and expiry |
 | POST /api/recovery/reset | `login`, `code`, `password` | `detail` + cleared cookie |
 | POST /api/submissions | Repeated multipart `files` fields (1–8 images/PDFs; max 10 MiB each, 32 MiB total) | `{submission_id, file_count}` |
+| GET /api/submissions | Optional query: `limit` 1–50 (default 25), `before` receipt cursor | `{submissions: [{submission_id, created, status, file_count}], next_before}` |
+| GET /api/submissions/{submission_id} | — | `submission_id`, `created`, `status`, `attempts`, nullable `review_status`, nullable `draft`, `files` |
 | GET /api/visible-records | — | Currently `{records: [], feature_status: "not_implemented"}` |
 
-An upload receipt means the originals were saved, not that AI finished or a bill was approved. Use 401 to return to sign-in, 403 for denied access, 413 for an oversized upload, and 429 with `Retry-After` for rate limits. Validation errors have a JSON `detail` field. Epoch times are seconds. Clarifications, draft review and scoped viewer records do not have public contracts yet.
+Submission reads are partner-only. Status is `queued`, `running`, `draft_ready` or `failed`. A returned draft contains nullable `vendor`, `bill_date`, `category`, `total_minor` and `currency`; `review_status` is `needs_review` when present. Each file entry has `position`, `filename`, `media_type` and `checksum`; there are no file bytes or public URLs. Pass `next_before` to fetch the next page, stopping when it is null.
+
+An upload receipt means the originals were saved, not that AI finished or a bill was approved. Use 401 to return to sign-in, 403 for denied access, 404 for a missing receipt, 413 for an oversized upload, and 429 with `Retry-After` for rate limits. Validation errors have a JSON `detail` field. Epoch times are seconds. Clarifications, draft writes and scoped viewer records do not have public contracts yet.
