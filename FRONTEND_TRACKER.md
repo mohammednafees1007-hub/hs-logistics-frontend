@@ -13,6 +13,6 @@ Handoff: 12 November 2026. “Implemented” means the UI is wired to the local 
 | Jobsheets, expenses and payments | Design examples and available backend API contract | Build real screens and forms from the documented routes |
 | Viewer sharing | Guest shell and simulated countdown; scope, expiry, revocation and access history APIs documented | Wire partner controls, viewer countdown, watermark and access history |
 | Reports and assistant | Partner summary API documented | Wire summary; Tamil/English assistant still pending |
-| Release | Local static preview and local API integration | Hosted connection, mobile/browser verification and production acceptance |
+| Release | Standalone Windows window, installable web manifest and signed Android preview build | Shared HTTPS backend, real Android verification and production acceptance |
 
 Start with the Add bill Android walkthrough, then design the real Records review states using sample fixtures. Coordinate new endpoint shapes with the backend owner before wiring them. Backend security checks and AI processing are owned in the separate backend repository.
