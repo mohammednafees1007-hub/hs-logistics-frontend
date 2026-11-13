@@ -9,7 +9,7 @@ Handoff: 12 November 2026. “Implemented” means the UI is wired to the local 
 | Invitations and viewer controls | Partner invite, named viewer invite, acceptance, suspend viewer | Browser/device walkthrough; invite usability |
 | Add bill | Multiple photo/PDF selection, limits, save state, server receipt and failure handling | Test camera/gallery/PDF pickers on Android; optional Tamil audio and text, interrupted upload recovery |
 | Questions | Interactive sample flow; per-bill clarification, reply and resolution APIs documented | Wire real questions in bill detail and design the cross-bill inbox |
-| Records and review | Partner-only historical Records viewer with sheet filters and original downloads; verified in Edge at mobile width with synthetic data | Wire new bill receipt list and review actions; Android acceptance |
+| Records and review | Partner-only historical Records viewer plus uploaded bill receipts, processing status and originals; upload-to-download tested in mobile-width Edge | Wire corrections and approval; Android acceptance |
 | Jobsheets, expenses and payments | Design examples and available backend API contract | Build real screens and forms from the documented routes |
 | Viewer sharing | Guest shell and simulated countdown; scope, expiry, revocation and access history APIs documented | Wire partner controls, viewer countdown, watermark and access history |
 | Reports and assistant | Partner summary API documented | Wire summary; Tamil/English assistant still pending |
