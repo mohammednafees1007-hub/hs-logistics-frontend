@@ -80,3 +80,10 @@ Money uses integer paise. Dates use YYYY-MM-DD. List endpoints support `limit` a
 | POST /api/expenses/{id}/settlements | Client UUID `id`, `paid_date`, `amount_minor`, `source` (company or partner) and `funded_by` (partner ID or null for company). |
 | POST /api/expenses/{id}/settlements/{settlement_id}/reimbursements | Client UUID `id`, `paid_date` and `amount_minor`. |
 | GET /api/reports/summary | Optional inclusive `start` and `end`. Returns jobs, expenses, payments and customers. Balances use all transactions against the selected records at read time. |
+## Historical Records
+
+Partner-only, read-only. `GET /api/history` lists sources and metadata.
+`GET /api/history/{id}` returns `items`, `sections` and `next_after`, with
+optional `section`, `after`, `limit` and `include_source_rows` filters.
+`GET /api/history/{id}/original` downloads the exact original bytes.
+Imported history is kept separate from approved ledger totals.

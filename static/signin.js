@@ -9,6 +9,7 @@ async function api(path,body){
 }
 function showLogin(message=''){
   el('billDialog').close();
+  el('historyDialog').close();
   el('partnerInvitation').close();
   session=null;clearTimeout(expiryTimer);el('accountHelp').close();el('codeOutput').value='';el('issuerPassword').value='';el('home').hidden=true;el('loading').hidden=true;el('signin').hidden=false;
   el('password').value='';el('password').type='password';el('togglePassword').textContent='Show';el('togglePassword').setAttribute('aria-pressed','false');el('togglePassword').setAttribute('aria-label','Show password');
